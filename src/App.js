@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import "./App.css"
-import Inputpage from './components/Inputpage';
+import Inputpage from './components/Inputpage/Inputpage';
 import axios from "axios"
-import Result from './components/Result';
+import Result from './components/Result/Result';
 
 
 const App = () => {
