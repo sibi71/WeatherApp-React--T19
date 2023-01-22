@@ -18,16 +18,17 @@ const Inputpage = ({input,setInput,findWeather,loading}) => {
         <div className='inputpage__field'>
             <h1>Google Weather App</h1>
             <p>Powered by</p>
-            <div className='loader'><RotatingLines
+            <div className='loader'>
+            <RotatingLines
                 strokeColor="white"
                 strokeWidth="2"
                 animationDuration="1"
                 width="55"
                 visible={loading}
                 /></div>
-           {!loading && <img src='https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png' alt='logo'/>
-            }
-           <form>
+            {!loading &&  <img src='https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png'
+             alt='logo'/>}
+            <form>
             <Input placeholder='Enter Your City Name' 
             onChange={handleChange}
             value={input}

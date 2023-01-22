@@ -11,12 +11,11 @@ const [temp, setTemp] = useState("");
 const [description, setDescription] = useState("");
 const [icon, setIcon] = useState("");
 const [name, setName] = useState("");
-const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState("");
 
 const findWeather = async()=>{
-  
   try{
-    setLoading(true)
+  setLoading(true)
   const unit = "metric";
   const url ="https://api.openweathermap.org/data/2.5/weather?q="+input+"&appid=f3a419ab7ab02bcafdccf93381e74575" + "&units="+unit ;
   const res = await axios.get(url);
@@ -25,13 +24,11 @@ const findWeather = async()=>{
   const icon = await res.data.weather[0].icon;
   const imgurl = "https://openweathermap.org/img/wn/"+icon+"@2x.png";
   const name = res.data.name;
-
   setTemp(temp);
   setDescription(description);
   setIcon(imgurl);
   setName(name);
   setLoading(false);
- 
   }
   catch(err){
     alert(err.response.data.message);
