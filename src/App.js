@@ -14,8 +14,9 @@ const [name, setName] = useState("");
 const [loading, setLoading] = useState(true);
 
 const findWeather = async()=>{
-  setLoading(true)
+  
   try{
+    setLoading(true)
   const unit = "metric";
   const url ="https://api.openweathermap.org/data/2.5/weather?q="+input+"&appid=f3a419ab7ab02bcafdccf93381e74575" + "&units="+unit ;
   const res = await axios.get(url);
@@ -24,6 +25,7 @@ const findWeather = async()=>{
   const icon = await res.data.weather[0].icon;
   const imgurl = "https://openweathermap.org/img/wn/"+icon+"@2x.png";
   const name = res.data.name;
+
   setTemp(temp);
   setDescription(description);
   setIcon(imgurl);
@@ -42,6 +44,7 @@ const findWeather = async()=>{
           input={input} 
           setInput={setInput} 
           findWeather={findWeather} 
+          loading={loading}
           />
         ):(
        <Result 
@@ -50,7 +53,7 @@ const findWeather = async()=>{
           icon={icon} 
           name={name} 
           setTemp={setTemp} 
-          loading={loading}
+         
            />
   
         )}
